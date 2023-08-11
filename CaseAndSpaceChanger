@@ -1,0 +1,3 @@
+get-childitem *.* | foreach { rename-item $_ $_.Name.Replace(” “, “_”) }
+Get-ChildItem -r | Where {!$_.PSIsContainer} | 
+                   Rename-Item -NewName {$_.FullName.ToLower()}
